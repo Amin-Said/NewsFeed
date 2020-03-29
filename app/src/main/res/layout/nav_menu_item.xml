@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="navDataModel"
+            type="com.amin.linktask.pojo.NavDataModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_selected"
+            android:layout_width="@dimen/image_selected_width"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/selected"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_nav"
+            android:layout_width="@dimen/nav_item_icon_size"
+            android:layout_height="@dimen/nav_item_icon_size"
+            android:layout_marginStart="@dimen/activity_32_margin"
+            android:layout_marginTop="@dimen/activity_16_margin"
+            android:layout_marginBottom="@dimen/activity_16_margin"
+            android:scaleType="fitCenter"
+            android:src="@{navDataModel.icon}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_nav_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_16_margin"
+            android:layout_marginTop="@dimen/activity_16_margin"
+            android:layout_marginBottom="@dimen/activity_16_margin"
+            android:text="@{navDataModel.name}"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/nav_item_font_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_nav"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

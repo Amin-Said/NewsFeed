@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+            <variable
+                name="article"
+                type="com.amin.linktask.pojo.Article"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.details.DetailsFragment">
+
+        <Button
+            android:id="@+id/open_website_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_16_margin"
+            android:layout_marginTop="@dimen/activity_16_margin"
+            android:layout_marginEnd="@dimen/activity_16_margin"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/activity_8_margin"
+            android:text="@string/open_website"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/button_font_size"
+            android:textStyle="bold"
+            android:typeface="sans"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_view" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_16_margin"
+            android:layout_marginTop="@dimen/activity_16_margin"
+            android:layout_marginEnd="@dimen/activity_16_margin"
+            app:cardCornerRadius="0dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="false"
+            app:contentPaddingBottom="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <TextView
+                    android:id="@+id/article_author"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_8_margin"
+                    android:layout_marginTop="@dimen/activity_8_margin"
+                    android:layout_marginEnd="@dimen/activity_8_margin"
+                    android:text="@{`By ` + article.author}"
+                    android:typeface="sans"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/article_title" />
+
+                <ImageView
+                    android:id="@+id/article_image"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/news_feed_image_height"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/placeholder"
+                    bind:urlToImage="@{article.urlToImage}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/article_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_8_margin"
+                    android:layout_marginTop="@dimen/activity_8_margin"
+                    android:layout_marginEnd="@dimen/activity_8_margin"
+                    android:text="@{article.title}"
+                    android:textColor="@color/colorMidGray"
+                    android:textSize="@dimen/news_feed_title_font_size"
+                    android:typeface="sans"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/article_image" />
+
+                <TextView
+                    android:id="@+id/article_description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_8_margin"
+                    android:layout_marginTop="@dimen/activity_8_margin"
+                    android:layout_marginEnd="@dimen/activity_8_margin"
+                    android:layout_marginBottom="@dimen/activity_8_margin"
+                    android:text="@{article.description}"
+                    android:typeface="sans"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/article_author" />
+
+                <TextView
+                    android:id="@+id/article_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/activity_8_margin"
+                    android:layout_marginBottom="@dimen/activity_8_margin"
+                    android:text="@{article.formattedDate}"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintBottom_toBottomOf="@+id/article_image"
+                    app:layout_constraintEnd_toEndOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
